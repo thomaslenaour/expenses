@@ -1,5 +1,7 @@
 import 'package:expenses/models/expense.dart';
+import 'package:expenses/models/setting.dart';
 import 'package:expenses/screens/home.dart';
+import 'package:expenses/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,9 +15,16 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<ExpenseModel>.value(
           value: ExpenseModel(),
         ),
+        ChangeNotifierProvider<SettingsModel>.value(
+          value: SettingsModel(),
+        ),
       ],
       child: MaterialApp(
-        home: HomeScreen(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => HomeScreen(),
+          '/settings': (context) => SettingsScreen(),
+        },
       ),
     );
   }

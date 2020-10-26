@@ -7,19 +7,31 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ExpenseModel expenseModel = Provider.of<ExpenseModel>(context);
 
-    return Container(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            for (var item in expenseModel.getExpenses)
-              Column(
-                children: [
-                  Text(item.name.toString()),
-                  Text(item.price.toString() + '€'),
-                ],
-              )
-          ],
+    return Scaffold(
+      body: Container(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              for (var item in expenseModel.getExpenses)
+                Column(
+                  children: [
+                    Text(item.name.toString()),
+                    Text(item.price.toString() + '€'),
+                  ],
+                ),
+              FlatButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/settings');
+                },
+                child: Text(
+                  'Tap Me',
+                  style: TextStyle(color: Colors.white),
+                ),
+                color: Colors.grey,
+              ),
+            ],
+          ),
         ),
       ),
     );
