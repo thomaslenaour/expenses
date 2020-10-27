@@ -7,7 +7,24 @@ import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int _selectedScreen = 0;
+  static List<Widget> _screenOptions = [
+    HomeScreen(),
+    SettingsScreen(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedScreen = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -20,11 +37,33 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        initialRoute: '/',
-        routes: {
-          '/': (context) => HomeScreen(),
-          '/settings': (context) => SettingsScreen(),
-        },
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text('Expenses'),
+          ),
+          body: Center(
+            child: _screenOptions.elementAt(_selectedScreen),
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.check),
+                label: 'Objectifs',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: 'Réglages',
+              ),
+            ],
+            currentIndex: _selectedScreen,
+            selectedItemColor: Colors.amber[800],
+            onTap: _onItemTapped,
+          ),
+        ),
       ),
     );
   }
