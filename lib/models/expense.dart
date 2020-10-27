@@ -7,12 +7,38 @@ class ExpenseModel extends ChangeNotifier {
       'Courses',
       'à Bordeaux',
       33.4,
+      'https://logo.clearbit.com/geantcasino.fr'
     ),
     Expense(
       'Macbook',
       'à Bordeaux',
       2000,
+      'https://logo.clearbit.com/apple.com'
     ),
+    Expense(
+        'Courses',
+        'à Bordeaux',
+        33.4,
+        'https://logo.clearbit.com/geantcasino.fr'
+    ),
+    Expense(
+        'Macbook',
+        'à Bordeaux',
+        2000,
+        'https://logo.clearbit.com/apple.com'
+    ),
+    Expense(
+        'Courses',
+        'à Bordeaux',
+        33.4,
+        'https://logo.clearbit.com/geantcasino.fr'
+    ),
+    Expense(
+        'Macbook',
+        'à Bordeaux',
+        2000,
+        'https://logo.clearbit.com/apple.com'
+    )
   ];
 
   List<Expense> get getExpenses => expenseList;
@@ -28,6 +54,10 @@ class Expense {
   String name;
   String description;
   double price; // €
+  String urlLogo;
 
-  Expense(this.name, this.description, this.price);
+  Expense(this.name, this.description, this.price, this.urlLogo);
+
+  String get getUrlLogo => urlLogo;
+  String get getDescription => description;
 }
