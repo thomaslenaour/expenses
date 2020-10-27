@@ -40,6 +40,7 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp(
         home: Scaffold(
+          backgroundColor: Colors.grey.shade100,
           appBar: AppBar(
             title: Text('Expenses'),
             backgroundColor: Colors.black,
