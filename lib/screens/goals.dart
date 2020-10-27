@@ -23,6 +23,24 @@ class GoalsScreen extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
+          SizedBox(height: 5.0),
+          Card(
+            child: Padding(
+              padding: EdgeInsets.all(15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    'Challenge 01',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
