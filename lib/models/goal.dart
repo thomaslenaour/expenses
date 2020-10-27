@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 
 class GoalsModel extends ChangeNotifier {
-  static bool isDollar = false;
+  static String title;
+  static double progression;
 
-  bool get getCurrency => isDollar;
 
-  set changeCurrency(bool isDollar) {
-    isDollar = isDollar ? false : true;
+  String get getTitle => title;
+  double get getProgression => progression;
+
+  set changeTitle(String newTitle) {
+    title = newTitle;
   }
+
+  set updateProgression(double newProgression) {
+    progression = newProgression;
+  }
+
 }
