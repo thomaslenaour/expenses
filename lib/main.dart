@@ -2,7 +2,7 @@ import 'package:expenses/models/expense.dart';
 import 'package:expenses/models/goal.dart';
 import 'package:expenses/screens/goals.dart';
 import 'package:expenses/screens/home.dart';
-import 'package:expenses/screens/settings.dart';
+import 'package:expenses/screens/add.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   static List<Widget> _screenOptions = [
     HomeScreen(),
     GoalsScreen(),
-    SettingsScreen(),
+    AddScreen(),
   ];
 
   void _onItemTapped(int index) {
