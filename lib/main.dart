@@ -1,5 +1,5 @@
 import 'package:expenses/models/expense.dart';
-import 'package:expenses/models/setting.dart';
+import 'package:expenses/models/goal.dart';
 import 'package:expenses/screens/goals.dart';
 import 'package:expenses/screens/home.dart';
 import 'package:expenses/screens/settings.dart';
@@ -34,8 +34,8 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider<ExpenseModel>.value(
           value: ExpenseModel(),
         ),
-        ChangeNotifierProvider<SettingsModel>.value(
-          value: SettingsModel(),
+        ChangeNotifierProvider<GoalsModel>.value(
+          value: GoalsModel(),
         ),
       ],
       child: MaterialApp(

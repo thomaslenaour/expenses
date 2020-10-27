@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SettingsModel extends ChangeNotifier {
+class GoalsModel extends ChangeNotifier {
   static bool isDollar = false;
 
   bool get getCurrency => isDollar;
