@@ -58,8 +58,8 @@ class _MyAppState extends State<MyApp> {
                 label: 'Objectifs',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: 'Réglages',
+                icon: Icon(Icons.add),
+                label: 'Nouveau',
               ),
             ],
             currentIndex: _selectedScreen,
