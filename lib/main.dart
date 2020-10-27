@@ -60,7 +60,7 @@ class _MyAppState extends State<MyApp> {
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.add),
-                label: 'Nouveau',
+                label: 'Ajouter',
               ),
             ],
             currentIndex: _selectedScreen,
