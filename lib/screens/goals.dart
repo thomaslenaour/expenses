@@ -1,4 +1,3 @@
-import 'package:expenses/widgets/chart.dart';
 import 'package:flutter/material.dart';
 
 class GoalsScreen extends StatelessWidget {
