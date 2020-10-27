@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
             title: Text('Expenses'),
             backgroundColor: Colors.black,
           ),
-          body: Center(
+          body: SafeArea(
             child: _screenOptions.elementAt(_selectedScreen),
           ),
           bottomNavigationBar: BottomNavigationBar(
