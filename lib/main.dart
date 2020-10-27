@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                label: 'Home',
+                label: 'Accueil',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.check),
