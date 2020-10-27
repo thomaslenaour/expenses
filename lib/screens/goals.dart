@@ -1,3 +1,4 @@
+import 'package:expenses/widgets/chart.dart';
 import 'package:flutter/material.dart';
 
 class GoalsScreen extends StatelessWidget {
@@ -27,16 +28,27 @@ class GoalsScreen extends StatelessWidget {
           Card(
             child: Padding(
               padding: EdgeInsets.all(15.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Challenge 01',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w600,
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Challenge 01',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(height: 5.0),
+                      Text(
+                        'Lorem ipsum',
+                        style: TextStyle(color: Colors.grey),
+                      )
+                    ],
                   ),
+                  Text('chart here'),
                 ],
               ),
             ),
