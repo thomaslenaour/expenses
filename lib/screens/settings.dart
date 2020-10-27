@@ -1,4 +1,3 @@
-import 'package:expenses/models/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:expenses/models/expense.dart';
 import 'package:provider/provider.dart';

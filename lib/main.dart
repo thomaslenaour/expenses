@@ -1,5 +1,6 @@
 import 'package:expenses/models/expense.dart';
 import 'package:expenses/models/setting.dart';
+import 'package:expenses/screens/goals.dart';
 import 'package:expenses/screens/home.dart';
 import 'package:expenses/screens/settings.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ class _MyAppState extends State<MyApp> {
   int _selectedScreen = 0;
   static List<Widget> _screenOptions = [
     HomeScreen(),
+    GoalsScreen(),
     SettingsScreen(),
   ];
 
@@ -40,6 +42,7 @@ class _MyAppState extends State<MyApp> {
         home: Scaffold(
           appBar: AppBar(
             title: Text('Expenses'),
+            backgroundColor: Colors.black,
           ),
           body: Center(
             child: _screenOptions.elementAt(_selectedScreen),
@@ -60,7 +63,7 @@ class _MyAppState extends State<MyApp> {
               ),
             ],
             currentIndex: _selectedScreen,
-            selectedItemColor: Colors.amber[800],
+            selectedItemColor: Colors.black,
             onTap: _onItemTapped,
           ),
         ),
