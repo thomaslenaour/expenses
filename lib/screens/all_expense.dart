@@ -15,18 +15,18 @@ class AllExpenses extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget> [
+                  FlatButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text('Retour à l\'accueil'),
+                  ),
                   Text(
                     'Liste de vos dépenses',
                     style: TextStyle(
                       fontSize: 30.0,
                       fontWeight: FontWeight.w800,
                     ),
-                  ),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text('Return'),
                   ),
                 ]
               ),

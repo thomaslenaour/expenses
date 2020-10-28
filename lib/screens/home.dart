@@ -30,62 +30,69 @@ class HomeScreen extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
+                SizedBox(height: 10.0,),
                 for (var item in expenseModel.getExpenses)
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical:10.0, horizontal: 10),
-                    margin: EdgeInsets.only(top: 5.0),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(7.0),
+                  Card(
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical:10.0, horizontal: 10),
+                      margin: EdgeInsets.only(top: 5.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(7.0),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children:<Widget>[
+                              Row(
+                                  children: <Widget> [
+                                    Image(
+                                      image: NetworkImage(item.getUrlLogo),
+                                      height: 50.0,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: Text(item.name),
+                                    ),
+                                  ]
+                              ),
+                              SizedBox(height: 5.0,),
+                              Text(
+                                '-' + item.getDescription,
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontStyle: FontStyle.italic,
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 5.0),
+                          Text(
+                            item.price.toString() + ' €',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w300,
+                              color: Colors.grey[700],
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children:<Widget>[
-                            Row(
-                                children: <Widget> [
-                                  Image(
-                                    image: NetworkImage(item.getUrlLogo),
-                                    height: 50.0,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 8.0),
-                                    child: Text(item.name),
-                                  ),
-                                ]
-                            ),
-                            Text(
-                              '-' + item.getDescription,
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontStyle: FontStyle.italic,
-                                fontSize: 12.0,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5.0),
-                        Text(
-                          item.price.toString() + ' €',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w300,
-                            color: Colors.grey[700],
-                          ),
-                        )
-                      ],
-                    ),
                   ),
-                FlatButton(
-                    onPressed:() {
-                      Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => AllExpenses()),
-                      );
-                    },
-                    child: Text('Tap me'),
+                Card(
+                  child: FlatButton(
+                      onPressed:() {
+                        Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => AllExpenses()),
+                        );
+                      },
+                    color: Colors.white,
+                      child: Text('Toutes vos dépenses'),
+                  ),
                 )
               ],
             ),

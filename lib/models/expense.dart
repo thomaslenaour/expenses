@@ -16,32 +16,29 @@ class ExpenseModel extends ChangeNotifier {
       'https://logo.clearbit.com/apple.com'
     ),
     Expense(
-        'Courses',
+        'Air Force One',
         'à Bordeaux',
-        33.4,
-        'https://logo.clearbit.com/geantcasino.fr'
+        99.99,
+        'https://logo.clearbit.com/nike.com'
     ),
     Expense(
-        'Macbook',
+        'Abonnement Spotify',
         'à Bordeaux',
-        2000,
-        'https://logo.clearbit.com/apple.com'
+        4.99,
+        'https://logo.clearbit.com/spotify.com'
     ),
-    Expense(
-        'Courses',
-        'à Bordeaux',
-        33.4,
-        'https://logo.clearbit.com/geantcasino.fr'
-    ),
-    Expense(
-        'Macbook',
-        'à Bordeaux',
-        2000,
-        'https://logo.clearbit.com/apple.com'
-    )
   ];
 
   List<Expense> get getExpenses => expenseList;
+
+  double getTotalExpensesAmount(){
+    double totalAmount;
+    for(var index = 0; index < expenseList.length; index++){
+      totalAmount += expenseList[index].getPrice;
+    }
+
+    return totalAmount;
+  }
 
   set addExpense(Expense expense) {
     expenseList.add(expense);
@@ -60,4 +57,5 @@ class Expense {
 
   String get getUrlLogo => urlLogo;
   String get getDescription => description;
+  double get getPrice => price;
 }
