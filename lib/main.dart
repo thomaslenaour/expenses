@@ -34,8 +34,8 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider<ExpenseModel>.value(
           value: ExpenseModel(),
         ),
-        ChangeNotifierProvider<GoalsModel>.value(
-          value: GoalsModel(),
+        ChangeNotifierProvider<GoalModel>.value(
+          value: GoalModel(),
         ),
       ],
       child: MaterialApp(

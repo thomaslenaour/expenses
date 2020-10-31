@@ -3,44 +3,24 @@ import 'package:uuid/uuid.dart';
 
 class ExpenseModel extends ChangeNotifier {
   List<Expense> expenseList = [
-    Expense(
-      'Courses',
-      'à Bordeaux',
-      33.4,
-      'https://logo.clearbit.com/geantcasino.fr'
-    ),
-    Expense(
-      'Macbook',
-      'à Bordeaux',
-      2000,
-      'https://logo.clearbit.com/apple.com'
-    ),
-    Expense(
-        'Air Force One',
-        'à Bordeaux',
-        99.99,
-        'https://logo.clearbit.com/nike.com'
-    ),
-    Expense(
-        'Abonnement Spotify',
-        'à Bordeaux',
-        4.99,
-        'https://logo.clearbit.com/spotify.com'
-    ),
+    Expense(name: "à bordeaux",
+            description: "Courses", 
+            price: 33.4, 
+            urlLogo: 'https://logo.clearbit.com/geantcasino.fr') 
   ];
 
   List<Expense> get getExpenses => expenseList;
 
-  double getTotalExpensesAmount(){
+  double getTotalExpensesAmount() {
     double totalAmount;
-    for(var index = 0; index < expenseList.length; index++){
+    for (var index = 0; index < expenseList.length; index++) {
       totalAmount += expenseList[index].getPrice;
     }
 
     return totalAmount;
   }
 
-  set addExpense(Expense expense) {
+  addExpense(Expense expense) {
     expenseList.add(expense);
     notifyListeners();
   }
@@ -53,7 +33,7 @@ class Expense {
   double price; // €
   String urlLogo;
 
-  Expense(this.name, this.description, this.price, this.urlLogo);
+  Expense({this.name, this.description, this.price, this.urlLogo});
 
   String get getUrlLogo => urlLogo;
   String get getDescription => description;
