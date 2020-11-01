@@ -53,7 +53,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
                 ]),
           ),
           CustomField(
-            hintText: 'Titre de la dépense',
+            hintText: 'Titre',
             validator: (String value) {
               if (value.isEmpty) {
                 return 'Entrez un titre de dépense ';
@@ -65,13 +65,10 @@ class _ExpenseFormState extends State<ExpenseForm> {
           ),
           CustomField(
             hintText: 'Description',
-            validator: (String value) {
-              if (value.isEmpty) {
-                return 'Entrez une courte description';
-              }
-            },
             onSaved: (String value) {
-              expense.description = value;
+              if(value.isNotEmpty) {
+                expense.description = value;
+              }
             },
           ),
           CustomField(

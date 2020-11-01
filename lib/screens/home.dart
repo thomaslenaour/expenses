@@ -32,7 +32,8 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10.0,),
-                for (var item in expenseModel.getExpenses)
+
+                for (var item in expenseModel.getLatestExpenses())
                   Card(
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical:10, horizontal: 10),
@@ -81,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                               SizedBox(height: 5.0,),
                               Text(
-                                '-' + item.getDescription,
+                                '- ' + item.getDescription,
                                 style: TextStyle(
                                   color: Colors.grey[600],
                                   fontStyle: FontStyle.italic,
