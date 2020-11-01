@@ -1,5 +1,6 @@
 import 'package:expenses/models/expense.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'all_expense.dart';
 
@@ -34,12 +35,12 @@ class HomeScreen extends StatelessWidget {
                 for (var item in expenseModel.getExpenses)
                   Card(
                     child: Container(
-                      padding: EdgeInsets.symmetric(vertical:10.0, horizontal: 10),
+                      padding: EdgeInsets.symmetric(vertical:10, horizontal: 10),
                       margin: EdgeInsets.only(top: 5.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.all(
-                          Radius.circular(7.0),
+                          Radius.circular(8.0),
                         ),
                       ),
                       child: Row(
@@ -53,11 +54,29 @@ class HomeScreen extends StatelessWidget {
                                     Image(
                                       image: NetworkImage(item.getUrlLogo),
                                       height: 50.0,
+                                      width: 50.0,
+                                      fit: BoxFit.contain,
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(left: 8.0),
-                                      child: Text(item.name),
-                                    ),
+                                      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text(item.name, 
+                                            style: 
+                                              TextStyle(
+                                                fontWeight: FontWeight.w600),
+                                                ),
+                                            Text(item.category.title, 
+                                            style: 
+                                              TextStyle(
+                                                color: HexColor(item.category.color),
+                                                fontWeight: FontWeight.w300
+                                                )
+                                              ),
+                                          ]
+                                      ),
+                                    )
                                   ]
                               ),
                               SizedBox(height: 5.0,),

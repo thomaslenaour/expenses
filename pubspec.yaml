@@ -33,6 +33,7 @@ dependencies:
   charts_flutter:
   modal_bottom_sheet: ^0.2.2
   validators: ^2.0.0+1
+  hexcolor: ^1.0.6
 
 dev_dependencies:
   flutter_test:

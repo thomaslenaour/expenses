@@ -11,7 +11,14 @@ class ExpenseModel extends ChangeNotifier {
         price: 3000,
         urlLogo: 'https://logo.clearbit.com/apple.fr',
         category: Category(title: "Shopping", color: "#db404f"),
-        )
+        ),
+    Expense(
+        name: "Hard Rock Café",
+        description: "Bière avec les potes",
+        price: 17.50,
+        urlLogo: 'https://logo.clearbit.com/hardrockcafe.com',
+        category: Category(title: "Sorties", color: "#6d70d1"),
+    ),
   ];
 
   List<Expense> get getExpenses => expenseList;

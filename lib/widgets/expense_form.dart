@@ -82,7 +82,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
               }
             },
             onSaved: (String value) {
-              String url = 'https://logo.clearbit.com/apple.com';
+              String url = 'https://logo.clearbit.com/' + value.toLowerCase() + '.com';
               expense.urlLogo = url;
             },
           ),
