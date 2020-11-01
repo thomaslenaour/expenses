@@ -36,6 +36,7 @@ class ExpenseModel extends ChangeNotifier {
     expenseList.add(expense);
     notifyListeners();
   }
+  
 }
 
 class Expense {

@@ -11,7 +11,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 class AddScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ExpenseModel expenseModel = Provider.of<ExpenseModel>(context);
+    ExpenseModel expenseModel = Provider.of<ExpenseModel>(context);
 
     return Scaffold(
       body: SingleChildScrollView(

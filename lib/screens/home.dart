@@ -7,7 +7,7 @@ import 'all_expense.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ExpenseModel expenseModel = Provider.of<ExpenseModel>(context);
+    ExpenseModel expenseModel = Provider.of<ExpenseModel>(context);
 
     return Scaffold(
       body: Padding(
