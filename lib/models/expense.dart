@@ -19,9 +19,32 @@ class ExpenseModel extends ChangeNotifier {
         urlLogo: 'https://logo.clearbit.com/hardrockcafe.com',
         category: Category(title: "Sorties", color: "#6d70d1"),
     ),
+    Expense(
+      name: "Courses",
+      description: "Courses pour le soir",
+      price: 47.93,
+      urlLogo: 'https://logo.clearbit.com/carrefour.com',
+      category: Category(title: "Alimentation", color: "#6d93d1"),
+    ),
+    Expense(
+      name: "Nike Store",
+      description: "Air Jordan One",
+      price: 17.50,
+      urlLogo: 'https://logo.clearbit.com/nike.com',
+      category: Category(title: "Shopping", color: "#6d70d1"),
+    ),
   ];
 
   List<Expense> get getExpenses => expenseList;
+
+  List<Expense> getLatestExpenses(){
+    List<Expense> latestExpenses = [];
+    for(var index = expenseList.length - 1; index > expenseList.length - 4; index--){
+      latestExpenses.add(expenseList[index]);
+    }
+
+    return latestExpenses;
+  }
 
   double getTotalExpensesAmount() {
     double totalAmount;
@@ -41,7 +64,7 @@ class ExpenseModel extends ChangeNotifier {
 class Expense {
   Uuid id = Uuid();
   String name;
-  String description;
+  String description = "Aucune description";
   double price; // €
   String urlLogo;
   Category category;
