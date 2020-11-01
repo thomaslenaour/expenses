@@ -33,6 +33,20 @@ class ExpenseModel extends ChangeNotifier {
       urlLogo: 'https://logo.clearbit.com/nike.com',
       category: Category(title: "Shopping", color: "#6d70d1"),
     ),
+    Expense(
+      name: "Apple Store",
+      description: "Apple Watch X Nike",
+      price: 400.99,
+      urlLogo: 'https://logo.clearbit.com/apple.com',
+      category: Category(title: "Shopping", color: "#6d70d1"),
+    ),
+    Expense(
+      name: "Spotify",
+      description: "Abonnement mensuel",
+      price: 4.99,
+      urlLogo: 'https://logo.clearbit.com/spotify.com',
+      category: Category(title: "Abonnements", color: "#6d70d1"),
+    ),
   ];
 
   List<Expense> get getExpenses => expenseList;
@@ -47,7 +61,7 @@ class ExpenseModel extends ChangeNotifier {
   }
 
   double getTotalExpensesAmount() {
-    double totalAmount;
+    double totalAmount = 0;
     for (var index = 0; index < expenseList.length; index++) {
       totalAmount += expenseList[index].getPrice;
     }
