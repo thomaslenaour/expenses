@@ -1,9 +1,8 @@
 import 'package:expenses/widgets/expense_form.dart';
-import 'package:expenses/widgets/form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:expenses/models/expense.dart';
 import 'package:provider/provider.dart';
-
+import 'package:uuid/uuid.dart';
 
 // expenseModel.getExpenses[0].price.toString()
 //AddButton("assets/images/finance_graph.png", "Nouvelle Dépense")
@@ -11,6 +10,7 @@ class AddExpenseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ExpenseModel expenseModel = Provider.of<ExpenseModel>(context);
+    Uuid selectedCategory;
 
     return Scaffold(
       body: SingleChildScrollView(

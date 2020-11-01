@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
+import 'package:expenses/models/category.dart';
+
 
 class ExpenseModel extends ChangeNotifier {
   List<Expense> expenseList = [
-    Expense(name: "à bordeaux",
-            description: "Courses", 
-            price: 33.4, 
-            urlLogo: 'https://logo.clearbit.com/geantcasino.fr') 
+    Expense(
+        name: "Apple Store",
+        description: "Achat Mac",
+        price: 3000,
+        urlLogo: 'https://logo.clearbit.com/apple.fr',
+        category: Category(title: "Shopping", color: "#db404f"),
+        )
   ];
 
   List<Expense> get getExpenses => expenseList;
@@ -32,8 +37,10 @@ class Expense {
   String description;
   double price; // €
   String urlLogo;
+  Category category;
 
-  Expense({this.name, this.description, this.price, this.urlLogo});
+  Expense(
+      {this.name, this.description, this.price, this.urlLogo, this.category});
 
   String get getUrlLogo => urlLogo;
   String get getDescription => description;

@@ -1,13 +1,12 @@
-import 'dart:ffi';
-import 'dart:math';
+import 'package:expenses/models/category.dart';
+import 'package:uuid/uuid.dart';
 import 'package:expenses/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:validators/validators.dart' as validator;
 import 'package:expenses/models/expense.dart';
-import 'package:expenses/widgets/form_field.dart';
 import 'package:provider/provider.dart';
-import 'package:expenses/screens/all_expense.dart';
-
+import 'package:flutter/cupertino.dart';
+import 'package:expenses/widgets/form_field.dart';
 
 class ExpenseForm extends StatefulWidget {
   @override
@@ -21,11 +20,38 @@ class _ExpenseFormState extends State<ExpenseForm> {
   @override
   Widget build(BuildContext context) {
     final ExpenseModel expenseModel = Provider.of<ExpenseModel>(context);
-
+    final CategoryModel categoryModel = Provider.of<CategoryModel>(context);
+    int selectedCategory;
     return Form(
       key: _formKey,
       child: Column(
         children: <Widget>[
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 5),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Text(
+                    "Catégorie",
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                  Container(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                      height: 130,
+                      child: CupertinoPicker(
+                          useMagnifier: true,
+                          onSelectedItemChanged: (value) {
+                            selectedCategory = value;
+                          },
+                          itemExtent: 32.0,
+                          children: categoryModel.getCategories
+                              .map((category) => Text(category.title))
+                              .toList())),
+                ]),
+          ),
           CustomField(
             hintText: 'Titre de la dépense',
             validator: (String value) {
@@ -82,6 +108,8 @@ class _ExpenseFormState extends State<ExpenseForm> {
             onPressed: () {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
+                expense.category =
+                    categoryModel.getCategories[selectedCategory];
                 expenseModel.addExpense(expense);
                 Navigator.push(
                   context,

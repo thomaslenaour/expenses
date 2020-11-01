@@ -1,9 +1,11 @@
+import 'package:expenses/models/category.dart';
 import 'package:expenses/models/expense.dart';
 import 'package:expenses/models/goal.dart';
 import 'package:expenses/screens/goals.dart';
 import 'package:expenses/screens/home.dart';
 import 'package:expenses/screens/add.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
@@ -36,6 +38,9 @@ class _MyAppState extends State<MyApp> {
         ),
         ChangeNotifierProvider<GoalModel>.value(
           value: GoalModel(),
+        ),
+        ChangeNotifierProvider<CategoryModel>.value(
+          value: CategoryModel(),
         ),
       ],
       child: MaterialApp(
