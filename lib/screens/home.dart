@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:expenses/models/expense.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -5,6 +6,20 @@ import 'package:provider/provider.dart';
 import 'all_expense.dart';
 
 class HomeScreen extends StatelessWidget {
+
+  validatorLogoUrl(String url){
+    NetworkImage image;
+    try {
+      image = new NetworkImage(url);
+    } catch(e) {
+      print("echo");
+    }
+
+    if(image != null){
+      return image;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     ExpenseModel expenseModel = Provider.of<ExpenseModel>(context);
@@ -53,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                               Row(
                                   children: <Widget> [
                                     Image(
-                                      image: NetworkImage(item.getUrlLogo),
+                                      image: validatorLogoUrl(item.getUrlLogo),
                                       height: 50.0,
                                       width: 50.0,
                                       fit: BoxFit.contain,
