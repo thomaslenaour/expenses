@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expenses/widgets/goal_card.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:expenses/models/app_state_model.dart';
@@ -42,7 +44,6 @@ class GoalsScreen extends StatelessWidget {
                         category: 'Courses',
                       );
                     }
-                    return null;
                   },
                 ),
               ),
