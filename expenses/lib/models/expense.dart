@@ -30,6 +30,7 @@ class Expense {
   final double amount;
   final String urlLogo;
 
+  String getName() => name;
   // String get assetName => '$id-0.jpg';
   // String get assetPackage => 'shrine_images';
 

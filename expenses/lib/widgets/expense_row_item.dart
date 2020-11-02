@@ -50,7 +50,6 @@ class ExpenseRowItem extends StatelessWidget {
                     style: Styles.expenseRowItemName,
                   ),
                   const Padding(padding: EdgeInsets.only(top: 8)),
-                  // todo transformer enum category en object parce c'est deg 
                   Text(
                     '${expense.category.toString().substring(expense.category.toString().indexOf('.') + 1)}',
                     style: Styles.expenseRowItemPrice,

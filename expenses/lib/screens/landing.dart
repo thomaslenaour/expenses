@@ -18,7 +18,7 @@ class LandingScreen extends StatelessWidget {
           semanticChildCount: expense.length,
           slivers: <Widget>[
             const CupertinoSliverNavigationBar(
-              largeTitle: Text('Dépenses'),
+              largeTitle: Text('Accueil'),
             ),
             SliverToBoxAdapter(
               child: Column(
@@ -66,14 +66,14 @@ class LandingScreen extends StatelessWidget {
                     return null;
                   },
                 ),
-                
+
               ),
             ),
             SliverToBoxAdapter(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: CupertinoButton(
-                  borderRadius: new BorderRadius.circular(30.0),
+                  borderRadius: new BorderRadius.circular(5.0),
                   child: Text('Voir toutes mes dépenses'),
                   color: CupertinoColors.systemBlue,
                   onPressed: () => globals.tabController.index = 1,
