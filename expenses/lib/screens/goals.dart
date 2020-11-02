@@ -5,13 +5,18 @@ import 'package:expenses/models/app_state_model.dart';
 import 'package:expenses/models/expense.dart';
 
 class GoalsScreen extends StatelessWidget {
-  final data = [
+  final goals = [
     'Objectif Courses',
     'Objectif Alimentation',
     'Objectif Sorties',
     'Objectif 4',
     'Objectif Sports',
+    'Objectif Sports',
+    'Objectif Sports',
+    'Objectif Sports',
+    'Objectif Sports',
   ];
+  final percentages = [32, 49, 70, 92, 76, 66, 21, 88, 97];
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +33,12 @@ class GoalsScreen extends StatelessWidget {
               sliver: SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
-                    if (index < data.length) {
+                    if (index < goals.length) {
                       return GoalRowItem(
                         index: index,
-                        title: data[index],
+                        title: goals[index],
                         amount: 200,
+                        percentage: percentages[index] / 100,
                         category: 'Courses',
                       );
                     }
