@@ -20,7 +20,7 @@ class ExpenseModel {
         category: Category.Shopping,
         id: 2,
         description: "Abonnement Spotify",
-        name: 'Apple Store',
+        name: 'Spotify',
         amount: 120,
         urlLogo: "https://logo.clearbit.com/spotify.com"),
   ];
