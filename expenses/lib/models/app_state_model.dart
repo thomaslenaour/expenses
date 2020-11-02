@@ -14,14 +14,7 @@ class AppStateModel extends foundation.ChangeNotifier {
     if (_allExpenses == null) {
       return [];
     }
-
-    if (_selectedCategory == Category.Toutes) {
-      return List.from(_allExpenses);
-    } else {
-      return _allExpenses.where((exp) {
-        return exp.category == _selectedCategory;
-      }).toList();
-    }
+    return List.from(_allExpenses);
   }
 
   // Search an expense
@@ -37,12 +30,17 @@ class AppStateModel extends foundation.ChangeNotifier {
 
   // Loads the list of expenses from the model.
   void loadExpenses() {
-    _allExpenses = ExpenseModel.loadExpenses(Category.Toutes);
+    _allExpenses = ExpenseModel.loadExpenses();
     notifyListeners();
   }
 
   void setCategory(Category newCategory) {
     _selectedCategory = newCategory;
+    notifyListeners();
+  }
+
+  void setExpenses(Expense newExpense) {
+    _allExpenses.add(newExpense);
     notifyListeners();
   }
 }
