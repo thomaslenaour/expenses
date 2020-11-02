@@ -26,6 +26,14 @@ class ExpenseModel {
         amount: 120,
         urlLogo: "https://logo.clearbit.com/spotify.com"
     ),
+    Expense(
+        category: Category.Shopping,
+        id: 2,
+        description: "Abonnement Netflix",
+        name: 'Netflix',
+        amount: 4.99,
+        urlLogo: "https://logo.clearbit.com/netflix.com"
+    ),
   ];
 
   static List<Expense> loadExpenses(Category category) {
