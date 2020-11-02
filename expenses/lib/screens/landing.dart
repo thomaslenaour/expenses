@@ -29,7 +29,8 @@ class LandingScreen extends StatelessWidget {
                   ),
                 )
             ),
-            SliverSafeArea(  // BEGINNING OF NEW CONTENT
+            SliverSafeArea(
+              // BEGINNING OF NEW CONTENT
               top: false,
               minimum: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
               sliver: SliverList(
@@ -59,5 +60,3 @@ class LandingScreen extends StatelessWidget {
     );
   }
 }
-
-
