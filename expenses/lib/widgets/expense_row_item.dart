@@ -33,8 +33,8 @@ class ExpenseRowItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
             child: Image(
               image: NetworkImage(expense.urlLogo),
-              height: 76.0,
-              width: 76.0,
+              height: 60.0,
+              width: 60.0,
               fit: BoxFit.contain,
             ),
           ),

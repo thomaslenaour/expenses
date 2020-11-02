@@ -29,8 +29,6 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
   );
 
-
-
   static const Color expenseRowDivider = Color(0xFFD9D9D9);
 
   static const Color scaffoldBackground = Color(0xfff0f0f0);
