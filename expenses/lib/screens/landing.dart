@@ -3,6 +3,7 @@ import 'package:expenses/widgets/expense_row_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:expenses/globals.dart' as globals;
 import 'package:flutter/material.dart';
 
 class LandingScreen extends StatelessWidget {
@@ -49,9 +50,14 @@ class LandingScreen extends StatelessWidget {
               ),
             ),
             SliverToBoxAdapter(
-              child: CupertinoButton(
-                child: Text("Voir toutes mes dépenses"),
-                color: Colors.green,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: CupertinoButton(
+                  borderRadius: new BorderRadius.circular(30.0),
+                  child: Text('Voir toutes mes dépenses'),
+                  color: CupertinoColors.systemBlue,
+                  onPressed: () => globals.tabController.index = 1,
+                ),
               ),
             )
           ],
