@@ -3,10 +3,8 @@ import 'expense.dart';
 import 'expense_model.dart';
 
 class AppStateModel extends foundation.ChangeNotifier {
-
   List<Expense> _allExpenses;
   Category _selectedCategory = Category.Toutes;
-
 
   Category get selectedCategory {
     return _selectedCategory;
@@ -26,7 +24,7 @@ class AppStateModel extends foundation.ChangeNotifier {
     }
   }
 
-  // Search an expense 
+  // Search an expense
   List<Expense> search(String searchTerms) {
     return getExpenses().where((expense) {
       return expense.name.toLowerCase().contains(searchTerms.toLowerCase());
