@@ -1,4 +1,5 @@
 import 'package:expenses/screens/add.dart';
+import 'package:expenses/screens/all_expenses.dart';
 import 'package:expenses/screens/goals.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:expenses/screens/landing.dart';
@@ -36,6 +37,10 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Accueil',
           ),
           BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.money_euro),
+            label: 'Mes dépenses',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.check_mark),
             label: 'Objectifs',
           ),
@@ -59,11 +64,18 @@ class _HomeScreenState extends State<HomeScreen> {
           case 1:
             returnValue = CupertinoTabView(builder: (context) {
               return CupertinoPageScaffold(
-                child: GoalsScreen(),
+                child: AllExpensesScreen(),
               );
             });
             break;
           case 2:
+            returnValue = CupertinoTabView(builder: (context) {
+              return CupertinoPageScaffold(
+                child: GoalsScreen(),
+              );
+            });
+            break;
+          case 3:
             returnValue = CupertinoTabView(builder: (context) {
               return CupertinoPageScaffold(
                 child: AddScreen(),
