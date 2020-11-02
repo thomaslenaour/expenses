@@ -49,9 +49,14 @@ class LandingScreen extends StatelessWidget {
               ),
             ),
             SliverToBoxAdapter(
-              child: CupertinoButton(
-                child: Text("Voir toutes mes dépenses"),
-                color: Colors.green,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: CupertinoButton(
+                  onPressed: ()=>{},
+                  borderRadius: new BorderRadius.circular(30.0),
+                  child: Text('Voir toutes mes dépenses'),
+                  color: CupertinoColors.systemBlue,
+                ),
               ),
             )
           ],
