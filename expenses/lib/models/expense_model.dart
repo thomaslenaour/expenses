@@ -1,4 +1,5 @@
 import 'expense.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ExpenseModel {
   static var _allExpenses = <Expense>[
@@ -10,14 +11,14 @@ class ExpenseModel {
         amount: 0,
         urlLogo: "https://logo.clearbit.com/apple.fr"),
     Expense(
-        category: Category.Shopping,
+        category: Category.Autres,
         id: 1,
         description: "Air Force One",
         name: 'Nike Store',
         amount: 99.99,
         urlLogo: "https://logo.clearbit.com/nike.com"),
     Expense(
-        category: Category.Shopping,
+        category: Category.Abonnements,
         id: 2,
         description: "Abonnement Spotify",
         name: 'Spotify',
@@ -31,7 +32,7 @@ class ExpenseModel {
         amount: 134,
         urlLogo: "https://logo.clearbit.com/netflix.com"),
     Expense(
-        category: Category.Shopping,
+        category: Category.Factures,
         id: 2,
         description: "Courses",
         name: 'Géant',
@@ -44,11 +45,9 @@ class ExpenseModel {
         name: 'MacDo',
         amount: 120,
         urlLogo: "https://logo.clearbit.com/mcdonalds.fr"),
-
   ];
 
   static List<Expense> loadExpenses() {
     return _allExpenses;
   }
-
 }
