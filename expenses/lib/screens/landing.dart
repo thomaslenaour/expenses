@@ -15,7 +15,8 @@ class LandingScreen extends StatelessWidget {
             const CupertinoSliverNavigationBar(
               largeTitle: Text('Expenses'),
             ),
-            SliverSafeArea(  // BEGINNING OF NEW CONTENT
+            SliverSafeArea(
+              // BEGINNING OF NEW CONTENT
               top: false,
               minimum: const EdgeInsets.only(top: 8),
               sliver: SliverList(
@@ -32,12 +33,10 @@ class LandingScreen extends StatelessWidget {
                   },
                 ),
               ),
-            ) 
+            ),
           ],
         );
       },
     );
   }
 }
-
-
