@@ -2,6 +2,7 @@ import 'package:expenses/models/expense.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:expenses/models/app_state_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ExpenseForm extends StatefulWidget {
   @override
@@ -15,6 +16,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
   double amount;
   String urlLogo;
   String description;
+
 
   Widget _buildTitleField() {
     return CupertinoTextField(
@@ -134,6 +136,23 @@ class _ExpenseFormState extends State<ExpenseForm> {
 
   @override
   Widget build(BuildContext context) {
+    
+    CollectionReference expense =
+        FirebaseFirestore.instance.collection('expense');
+
+    Future<void> addExpense() {
+      // Call the user's CollectionReference to add a new user
+      return expense
+          .add({
+            'amount': amount, // John Doe
+            'urlLogo': urlLogo, // Stokes and Sons
+            'description': description // 42
+          })
+          .then((value) => print("Added expenses"))
+          .catchError((error) => print("Failed to add user: $error"));
+    }
+
+
     return Consumer<AppStateModel>(
       builder: (context, model, child) {
         return Container(
@@ -161,7 +180,8 @@ class _ExpenseFormState extends State<ExpenseForm> {
               child: Text("Ajouter"),
               onPressed: () {
                 var convertedString = this.urlLogo.replaceAll(' ', '');
-                var urlLogo = "https://logo.clearbit.com/${convertedString.toLowerCase()}.com";
+                var urlLogo =
+                    "https://logo.clearbit.com/${convertedString.toLowerCase()}.com";
                 var expense = new Expense(
                     category: Category.Factures,
                     id: 2,
@@ -169,6 +189,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
                     name: this.title,
                     amount: this.amount,
                     urlLogo: urlLogo);
+                addExpense();
                 final model =
                     Provider.of<AppStateModel>(context, listen: false);
                 model.setExpenses(expense);

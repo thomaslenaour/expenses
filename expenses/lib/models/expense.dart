@@ -9,8 +9,8 @@ enum Category {
 }
 
 class Expense {
-  const Expense(
-      {@required this.category,
+  const Expense({
+      @required this.category,
       @required this.id,
       @required this.description,
       @required this.name,
