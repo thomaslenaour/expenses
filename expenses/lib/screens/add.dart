@@ -34,9 +34,16 @@ class _AddScreenState extends State<AddScreen> {
             ),
             SliverToBoxAdapter(
                 child: CupertinoButton(
-              child: AddButton("assets/images/expense.png",
+                  child: AddButton("assets/images/expense.png",
                   "Nouvelle \nDépense", Color.fromRGBO(146, 207, 212, 100)),
-              onPressed: () => print("add expense"),
+                onPressed: () {
+                  showCupertinoModalBottomSheet(
+                    expand: false,
+                    context: context,
+                    backgroundColor: CupertinoColors.white,
+                    builder: (context, scrollController) => AddExpenseScreen(),
+                  );
+                },
             )),
             SliverToBoxAdapter(
                 child: CupertinoButton(

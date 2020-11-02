@@ -103,7 +103,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
     return CupertinoTextField(
       prefix: const Icon(
         CupertinoIcons.pencil,
-        color: CupertinoColors.lightBackgroundGray,
+        color: CupertinoColors.systemGrey,
         size: 28,
       ),
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
