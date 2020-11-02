@@ -24,6 +24,20 @@ class AppStateModel extends foundation.ChangeNotifier {
     }
   }
 
+  List<Expense> getReversedExpenses() {
+    if (_allExpenses == null) {
+      return [];
+    }
+    if (_selectedCategory == Category.Toutes) {
+      return List.from(_allExpenses.reversed);
+    } else {
+      return _allExpenses.where((exp) {
+        return exp.category == _selectedCategory;
+      }).toList();
+    }
+
+  }
+
   // Search an expense
   List<Expense> search(String searchTerms) {
     return getExpenses().where((expense) {

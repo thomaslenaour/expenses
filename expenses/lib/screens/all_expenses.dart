@@ -9,7 +9,7 @@ class AllExpensesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<AppStateModel>(
       builder: (context, model, child) {
-        final expense = model.getExpenses();
+        final expense = model.getReversedExpenses();
         return CustomScrollView(
           slivers: <Widget>[
             const CupertinoSliverNavigationBar(
