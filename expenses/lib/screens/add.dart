@@ -24,25 +24,17 @@ class _AddScreenState extends State<AddScreen> {
             const CupertinoSliverNavigationBar(
               largeTitle: Text('Ajouter'),
             ),
-            SliverSafeArea(  // BEGINNING OF NEW CONTENT
-              top: false,
-              minimum: const EdgeInsets.only(top: 8),
-              sliver: SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    if (index < expense.length) {
-                      return ExpenseRowItem(
-                        index: index,
-                        expense: expense[index],
-                        lastItem: index == expense.length - 1,
-                      );
-                    }
-
-                    return null;
-                  },
-                ),
-              ),
-            )                // END OF NEW CONTENT
+            SliverToBoxAdapter(
+              child: 
+              CupertinoButton(
+                child: 
+                  AddButton("assets/images/expense.png",
+                        "Nouvelle \nDépense", Color.fromRGBO(146, 207, 212, 100)
+                        ),
+                onPressed: () => print("pressed"),
+                )
+            ,)
+            ,
           ],
         );
       },
