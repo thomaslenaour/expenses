@@ -23,7 +23,7 @@ class _AddButtonState extends State<AddButton> {
     return Container(
         height: 230,
         width: double.infinity,
-        margin: EdgeInsets.fromLTRB(5, 25, 5, 0),
+        margin: EdgeInsets.fromLTRB(5, 10, 5, 0),
         decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(widget.image),

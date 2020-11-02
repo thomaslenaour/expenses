@@ -2,8 +2,30 @@ import 'package:expenses/screens/add.dart';
 import 'package:expenses/screens/goals.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:expenses/screens/landing.dart';
+import 'package:expenses/globals.dart' as globals;
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  CupertinoTabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = CupertinoTabController(initialIndex: 1);
+    globals.tabController = _tabController;
+    super.initState();
+  }
+
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
@@ -23,7 +45,8 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      tabBuilder: (context, index) {
+      controller: _tabController,
+      tabBuilder: (BuildContext context, index) {
         CupertinoTabView returnValue;
         switch (index) {
           case 0:
