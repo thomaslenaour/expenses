@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    _tabController = CupertinoTabController(initialIndex: 1);
+    _tabController = CupertinoTabController(initialIndex: 0);
     globals.tabController = _tabController;
     super.initState();
   }
