@@ -1,3 +1,4 @@
+import 'package:expenses/models/expense.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:expenses/models/app_state_model.dart';
@@ -19,7 +20,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
     return CupertinoTextField(
       prefix: const Icon(
         CupertinoIcons.pencil,
-        color: CupertinoColors.lightBackgroundGray,
+        color: CupertinoColors.systemGrey,
         size: 28,
       ),
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
@@ -30,11 +31,12 @@ class _ExpenseFormState extends State<ExpenseForm> {
         border: Border(
           bottom: BorderSide(
             width: 0,
-            color: CupertinoColors.inactiveGray,
+            color: CupertinoColors.systemGrey,
           ),
         ),
       ),
       placeholder: 'Titre',
+      placeholderStyle: TextStyle(color: CupertinoColors.systemGrey),
       onChanged: (newName) {
         setState(() {
           title = newName;
@@ -47,7 +49,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
     return CupertinoTextField(
       prefix: const Icon(
         CupertinoIcons.money_euro,
-        color: CupertinoColors.lightBackgroundGray,
+        color: CupertinoColors.systemGrey,
         size: 28,
       ),
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
@@ -58,11 +60,12 @@ class _ExpenseFormState extends State<ExpenseForm> {
         border: Border(
           bottom: BorderSide(
             width: 0,
-            color: CupertinoColors.inactiveGray,
+            color: CupertinoColors.systemGrey,
           ),
         ),
       ),
       placeholder: 'Montant',
+      placeholderStyle: TextStyle(color: CupertinoColors.systemGrey),
       onChanged: (newAmount) {
         setState(() {
           amount = double.parse(newAmount);
@@ -75,7 +78,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
     return CupertinoTextField(
       prefix: const Icon(
         CupertinoIcons.bag,
-        color: CupertinoColors.lightBackgroundGray,
+        color: CupertinoColors.systemGrey,
         size: 28,
       ),
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
@@ -86,11 +89,12 @@ class _ExpenseFormState extends State<ExpenseForm> {
         border: Border(
           bottom: BorderSide(
             width: 0,
-            color: CupertinoColors.inactiveGray,
+            color: CupertinoColors.systemGrey,
           ),
         ),
       ),
       placeholder: 'Enseigne',
+      placeholderStyle: TextStyle(color: CupertinoColors.systemGrey),
       onChanged: (newUrl) {
         setState(() {
           urlLogo = newUrl;
@@ -114,14 +118,15 @@ class _ExpenseFormState extends State<ExpenseForm> {
         border: Border(
           bottom: BorderSide(
             width: 0,
-            color: CupertinoColors.inactiveGray,
+            color: CupertinoColors.systemGrey,
           ),
         ),
       ),
       placeholder: 'Description',
+      placeholderStyle: TextStyle(color: CupertinoColors.systemGrey),
       onChanged: (newDesc) {
         setState(() {
-          title = newDesc;
+          description = newDesc;
         });
       },
     );
@@ -154,7 +159,20 @@ class _ExpenseFormState extends State<ExpenseForm> {
             child: CupertinoButton(
               color: CupertinoColors.systemBlue,
               child: Text("Ajouter"),
-              onPressed: () => print("Toto"),
+              onPressed: () {
+                var convertedString = this.urlLogo.replaceAll(' ', '');
+                var urlLogo = "https://logo.clearbit.com/${convertedString.toLowerCase()}.com";
+                var expense = new Expense(
+                    category: Category.Factures,
+                    id: 2,
+                    description: this.description,
+                    name: this.title,
+                    amount: this.amount,
+                    urlLogo: urlLogo);
+                final model =
+                    Provider.of<AppStateModel>(context, listen: false);
+                model.setExpenses(expense);
+              },
             ),
           )
         ]));
