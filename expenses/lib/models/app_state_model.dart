@@ -35,7 +35,45 @@ class AppStateModel extends foundation.ChangeNotifier {
         return exp.category == _selectedCategory;
       }).toList();
     }
+  }
 
+  List<Expense> getLatestExpenses() {
+    if (_allExpenses == null) {
+      return [];
+    }
+
+    if (_selectedCategory == Category.Toutes) {
+
+      List<Expense> reversedExpenses = List.from(_allExpenses.reversed);
+      List<Expense> latestExpenses = [];
+
+      for(var index = 0; index < 3; index++){
+        if(index >= reversedExpenses.length){
+          break;
+        }
+        latestExpenses.add(reversedExpenses[index]);
+      }
+
+      return latestExpenses;
+    } else {
+      return _allExpenses.where((exp) {
+        return exp.category == _selectedCategory;
+      }).toList();
+    }
+  }
+
+  List<double> getAllAmounts() {
+    if(_allExpenses.length > 0){
+      List<double> allAmounts = [];
+
+      for(var index = 0; index < _allExpenses.length ; index++){
+        allAmounts.add(_allExpenses[index].amount);
+      }
+
+      return allAmounts;
+    } else {
+      return [];
+    }
   }
 
   // Search an expense

@@ -13,7 +13,8 @@ class LandingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<AppStateModel>(
       builder: (context, model, child) {
-        final expense = model.getExpenses();
+        final expense = model.getLatestExpenses();
+        final amounts = model.getAllAmounts();
         return CustomScrollView(
           semanticChildCount: expense.length,
           slivers: <Widget>[
@@ -28,7 +29,7 @@ class LandingScreen extends StatelessWidget {
                       child: Container(
                         height: 140,
                         child: new Sparkline(
-                          data: [120, 20, 109, 30, 10, 203, 39],
+                          data: amounts,
                           lineWidth: 5.0,
                           fillMode: FillMode.below,
                           lineGradient: new LinearGradient(
