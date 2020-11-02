@@ -28,12 +28,11 @@ class LandingScreen extends StatelessWidget {
                         lastItem: index == expense.length - 1,
                       );
                     }
-
                     return null;
                   },
                 ),
               ),
-            )                // END OF NEW CONTENT
+            ) 
           ],
         );
       },
