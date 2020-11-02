@@ -1,3 +1,4 @@
+import 'package:expenses/widgets/expense_form.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:expenses/models/expense.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -36,7 +37,7 @@ class AddExpenseScreen extends StatelessWidget {
               Padding(padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),),
               Image.asset("assets/images/shop.png",
               fit: BoxFit.cover),
-              
+              ExpenseForm(),
             ],
           ),
         ),
