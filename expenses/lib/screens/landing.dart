@@ -24,6 +24,14 @@ class LandingScreen extends StatelessWidget {
             SliverToBoxAdapter(
               child: Column(
                   children: <Widget> [
+                    SizedBox(height: 18),
+                    Text(
+                      'Vos dépenses mensuelles',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w500
+                      )
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 18.0),
                       child: Container(
@@ -67,7 +75,6 @@ class LandingScreen extends StatelessWidget {
                     return null;
                   },
                 ),
-
               ),
             ),
             SliverToBoxAdapter(

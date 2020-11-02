@@ -21,13 +21,8 @@ class AppStateModel extends foundation.ChangeNotifier {
     if (_allExpenses == null) {
       return [];
     }
-    if (_selectedCategory == Category.Toutes) {
-      return List.from(_allExpenses.reversed);
-    } else {
-      return _allExpenses.where((exp) {
-        return exp.category == _selectedCategory;
-      }).toList();
-    }
+    return List.from(_allExpenses.reversed);
+
   }
 
   List<Expense> getLatestExpenses() {
@@ -35,24 +30,17 @@ class AppStateModel extends foundation.ChangeNotifier {
       return [];
     }
 
-    if (_selectedCategory == Category.Toutes) {
+    List<Expense> reversedExpenses = List.from(_allExpenses.reversed);
+    List<Expense> latestExpenses = [];
 
-      List<Expense> reversedExpenses = List.from(_allExpenses.reversed);
-      List<Expense> latestExpenses = [];
-
-      for(var index = 0; index < 3; index++){
-        if(index >= reversedExpenses.length){
-          break;
-        }
-        latestExpenses.add(reversedExpenses[index]);
+    for(var index = 0; index < 4; index++){
+      if(index >= reversedExpenses.length){
+        break;
+      }
+      latestExpenses.add(reversedExpenses[index]);
       }
 
       return latestExpenses;
-    } else {
-      return _allExpenses.where((exp) {
-        return exp.category == _selectedCategory;
-      }).toList();
-    }
   }
 
   List<double> getAllAmounts() {
