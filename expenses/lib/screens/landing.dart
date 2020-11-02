@@ -44,7 +44,7 @@ class LandingScreen extends StatelessWidget {
                   },
                 ),
               ),
-            )                // END OF NEW CONTENT
+            ) 
           ],
         );
       },

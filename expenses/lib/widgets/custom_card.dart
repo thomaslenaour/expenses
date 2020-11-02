@@ -21,7 +21,7 @@ class _AddButtonState extends State<AddButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 220,
+        height: 230,
         width: double.infinity,
         margin: EdgeInsets.fromLTRB(5, 25, 5, 0),
         decoration: BoxDecoration(
@@ -32,7 +32,7 @@ class _AddButtonState extends State<AddButton> {
             borderRadius: BorderRadius.circular(15),
             boxShadow: [
               BoxShadow(
-                color: Color.fromRGBO(20, 20, 20, 0.2),
+                color: Color.fromRGBO(210, 210, 210, 0.7),
                 spreadRadius: 5,
                 blurRadius: 12,
                 offset: Offset(0, 3), // changes position of shadow
@@ -47,14 +47,14 @@ class _AddButtonState extends State<AddButton> {
               Text(
                 widget.cardText,
                 style: TextStyle(
-                    color: Color.fromRGBO(255, 255, 255, 0),
+                    color: Color.fromRGBO(255, 255, 255, 1),
                     fontSize: 29,
                     fontWeight: FontWeight.w600,
                     shadows: <Shadow>[
                       Shadow(
                         offset: Offset(3.0, 3.0),
                         blurRadius: 14.0,
-                        color: Color.fromRGBO(230, 230, 230, 0),
+                        color: Color.fromRGBO(150, 150, 150, 0.6),
                       ),
                     ]),
               ),
