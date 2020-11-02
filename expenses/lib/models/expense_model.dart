@@ -12,7 +12,7 @@ class ExpenseModel {
     ),
     Expense(
         category: Category.Shopping,
-        id: 0,
+        id: 1,
         description: "Air Force One",
         name: 'Nike Store',
         amount: 99.99,
@@ -20,7 +20,7 @@ class ExpenseModel {
     ),
     Expense(
         category: Category.Shopping,
-        id: 0,
+        id: 2,
         description: "Abonnement Spotify",
         name: 'Apple Store',
         amount: 120,
@@ -35,6 +35,4 @@ class ExpenseModel {
       return _allExpenses.where((p) => p.category == category).toList();
     }
   }
-
-
 }

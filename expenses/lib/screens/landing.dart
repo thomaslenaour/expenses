@@ -2,6 +2,8 @@ import 'package:expenses/models/app_state_model.dart';
 import 'package:expenses/widgets/expense_row_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:flutter/material.dart';
 
 class LandingScreen extends StatelessWidget {
   @override
@@ -17,7 +19,7 @@ class LandingScreen extends StatelessWidget {
             ),
             SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(top: 10, left: 15.0, bottom: 15.0),
                   child: Text(
                       'Vos dernières dépenses',
                       style: TextStyle(
@@ -29,7 +31,7 @@ class LandingScreen extends StatelessWidget {
             ),
             SliverSafeArea(  // BEGINNING OF NEW CONTENT
               top: false,
-              minimum: const EdgeInsets.only(top: 8),
+              minimum: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
               sliver: SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
@@ -44,7 +46,13 @@ class LandingScreen extends StatelessWidget {
                   },
                 ),
               ),
-            ) 
+            ),
+            SliverToBoxAdapter(
+              child: CupertinoButton(
+                child: Text("Voir toutes mes dépenses"),
+                color: Colors.green,
+              ),
+            )
           ],
         );
       },
