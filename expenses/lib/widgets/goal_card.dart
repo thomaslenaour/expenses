@@ -41,7 +41,7 @@ class GoalRowItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '${title}',
+              title,
               style: Styles.expenseRowItemName,
             ),
             Padding(
