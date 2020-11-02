@@ -13,7 +13,19 @@ class LandingScreen extends StatelessWidget {
           semanticChildCount: expense.length,
           slivers: <Widget>[
             const CupertinoSliverNavigationBar(
-              largeTitle: Text('Expenses'),
+              largeTitle: Text('Dépenses'),
+            ),
+            SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                      'Vos dernières dépenses',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w500
+                      ),
+                  ),
+                )
             ),
             SliverSafeArea(  // BEGINNING OF NEW CONTENT
               top: false,
@@ -28,7 +40,6 @@ class LandingScreen extends StatelessWidget {
                         lastItem: index == expense.length - 1,
                       );
                     }
-
                     return null;
                   },
                 ),

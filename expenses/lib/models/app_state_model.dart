@@ -17,7 +17,7 @@ class AppStateModel extends foundation.ChangeNotifier {
       return [];
     }
 
-    if (_selectedCategory == Category.Autres) {
+    if (_selectedCategory == Category.Toutes) {
       return List.from(_allExpenses);
     } else {
       return _allExpenses.where((exp) {
