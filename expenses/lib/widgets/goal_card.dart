@@ -52,11 +52,17 @@ class GoalRowItem extends StatelessWidget {
                   SizedBox(
                     width: 30.0,
                   ),
-                  Text(
-                    '${(percentage * 100).toStringAsFixed(2)} %',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
-                  ),
+                  percentage > 1
+                      ? Text(
+                          'Dépassé',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 13.0),
+                        )
+                      : Text(
+                          '${(percentage * 100).toStringAsFixed(2)} %',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15.0),
+                        )
                 ],
               ),
             ),
