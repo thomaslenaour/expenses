@@ -86,7 +86,12 @@ class AppStateModel extends foundation.ChangeNotifier {
     _allExpenses.add(newExpense);
     notifyListeners();
   }
-  
+
+  void removeExpense(int index) {
+    _allExpenses.removeAt(index);
+    notifyListeners();
+  }
+
   List<Goal> getGoals() {
     if (_allGoals == null) {
       return [];

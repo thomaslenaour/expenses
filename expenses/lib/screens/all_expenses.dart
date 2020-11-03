@@ -1,7 +1,10 @@
+import 'package:expenses/screens/add_expense.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:expenses/widgets/expense_row_item.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import 'package:expenses/models/app_state_model.dart';
+
 
 class AllExpensesScreen extends StatelessWidget {
   @override
@@ -21,10 +24,36 @@ class AllExpensesScreen extends StatelessWidget {
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
                     if (index < expense.length) {
-                      return ExpenseRowItem(
-                        index: index,
-                        expense: expense[index],
-                        lastItem: index == expense.length - 1,
+                      return GestureDetector(
+                        onLongPress: () => 
+                        showCupertinoModalPopup(
+                          context: context, 
+                          builder: (context) => 
+                            CupertinoActionSheet(
+                              title: Text("Supprimer une dépense"),
+                              actions: [
+                                // CupertinoActionSheetAction(
+                                //   onPressed: () => AddExpenseScreen(), 
+                                //   child: Text("Modifier")),
+                                CupertinoActionSheetAction(
+                                  onPressed: () => { 
+                                    model.removeExpense(index), 
+                                    Navigator.pop(context, 'Cancel'),
+                                    },
+                                  child: Text("Supprimer")),
+                              ],
+                              cancelButton: CupertinoActionSheetAction(
+                                  onPressed: () => Navigator.pop(context, 'Cancel'), 
+                                  child: Text("Annuler"),
+                                  isDefaultAction: true,
+                                  ),
+                            ),),
+                        child: 
+                          ExpenseRowItem(
+                          index: index,
+                          expense: expense[index],
+                          lastItem: index == expense.length - 1,
+                        )
                       );
                     }
                     return null;
