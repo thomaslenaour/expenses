@@ -17,7 +17,7 @@ class AllExpensesScreen extends StatelessWidget {
             ),
             SliverSafeArea(
               top: false,
-              minimum: const EdgeInsets.only(top: 8),
+              minimum: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
               sliver: SliverList(
                 delegate: SliverChildBuilderDelegate(
                       (context, index) {

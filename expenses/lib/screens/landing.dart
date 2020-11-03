@@ -59,9 +59,9 @@ class LandingScreen extends StatelessWidget {
               ),
             ),
             SliverSafeArea(
-              // BEGINNING OF NEW CONTENT
               top: false,
-              minimum: const EdgeInsets.all(8.0),
+              bottom: false,
+              minimum: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
               sliver: SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {

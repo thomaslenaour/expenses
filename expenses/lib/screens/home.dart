@@ -58,7 +58,10 @@ class _HomeScreenState extends State<HomeScreen> {
           case 0:
             returnValue = CupertinoTabView(builder: (context) {
               return CupertinoPageScaffold(
-                child: LandingScreen(),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 40.0),
+                  child: LandingScreen(),
+                ),
               );
             });
             break;

@@ -4,9 +4,9 @@ import 'expense_model.dart';
 
 class AppStateModel extends foundation.ChangeNotifier {
   List<Expense> _allExpenses;
-  Category _selectedCategory = Category.Toutes;
+  ExpCategory _selectedCategory = ExpCategory.Toutes;
 
-  Category get selectedCategory {
+  ExpCategory get selectedCategory {
     return _selectedCategory;
   }
 
@@ -74,7 +74,7 @@ class AppStateModel extends foundation.ChangeNotifier {
     notifyListeners();
   }
 
-  void setCategory(Category newCategory) {
+  void setCategory(ExpCategory newCategory) {
     _selectedCategory = newCategory;
     notifyListeners();
   }
@@ -83,4 +83,5 @@ class AppStateModel extends foundation.ChangeNotifier {
     _allExpenses.add(newExpense);
     notifyListeners();
   }
+  
 }

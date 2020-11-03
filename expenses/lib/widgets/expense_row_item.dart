@@ -22,7 +22,7 @@ class ExpenseRowItem extends StatelessWidget {
       top: false,
       bottom: false,
       minimum: const EdgeInsets.only(
-        left: 16,
+        left: 8,
         top: 8,
         bottom: 8,
         right: 8,

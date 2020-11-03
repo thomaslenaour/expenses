@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-enum Category {
+enum ExpCategory {
   Autres,
   Shopping,
   Abonnements,
@@ -23,7 +23,7 @@ class Expense {
         assert(amount != null),
         assert(urlLogo != null);
 
-  final Category category;
+  final ExpCategory category;
   final int id;
   final String description;
   final String name;

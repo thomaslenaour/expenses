@@ -41,7 +41,10 @@ class _AddScreenState extends State<AddScreen> {
                     expand: false,
                     context: context,
                     backgroundColor: CupertinoColors.white,
-                    builder: (context, scrollController) => AddExpenseScreen(),
+                    builder: (context, scrollController) => Padding(
+                      padding: const EdgeInsets.only(bottom: 80.0),
+                      child: AddExpenseScreen(),
+                    ),
                   );
                 },
             )),
@@ -51,10 +54,13 @@ class _AddScreenState extends State<AddScreen> {
                         "Nouvel \nObjectif", Color.fromRGBO(247, 205, 89, 100)),
                 onPressed: () {
                   showCupertinoModalBottomSheet(
-                    expand: false,
+                    expand: true,
                     context: context,
                     backgroundColor: CupertinoColors.white,
-                    builder: (context, scrollController) => AddExpenseScreen(),
+                    builder: (context, scrollController) => Padding(
+                      padding: const EdgeInsets.only(bottom: 80.0),
+                      child: AddExpenseScreen(),
+                    ),
                   );
                 },)),
           ],
