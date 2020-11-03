@@ -18,15 +18,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		O294zXSmYmd4lOdPpX0nLc/PdB0=
+		RLP0U+fe95Mzu3AU7WiWzpPKNdY=
 		</data>
 		<key>Modules/hexcolor.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		iYlvTDAWjjMVLdmbgAR75+5DaoM=
+		jjSm6xlX/RWaCIEEy/c+J5bddFA=
 		</data>
 		<key>Modules/hexcolor.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		iYlvTDAWjjMVLdmbgAR75+5DaoM=
+		jjSm6xlX/RWaCIEEy/c+J5bddFA=
 		</data>
 		<key>Modules/hexcolor.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/hexcolor.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		lxbd96LuDy9AoyQOIxeAjOr5QOo=
+		7dR3VCJ/OqelyBiMw/vA+UkemQ0=
 		</data>
 		<key>Modules/hexcolor.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/hexcolor.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		lxbd96LuDy9AoyQOIxeAjOr5QOo=
+		7dR3VCJ/OqelyBiMw/vA+UkemQ0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -88,22 +88,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			iYlvTDAWjjMVLdmbgAR75+5DaoM=
+			jjSm6xlX/RWaCIEEy/c+J5bddFA=
 			</data>
 			<key>hash2</key>
 			<data>
-			kP3ZEXuBnl5cQXv+tXzT5xpV2Qg5BK8ahTSyY+GJdRs=
+			B5fU+ZVasgnXcBbUQvJbut2fJgyw/qFiqssKOBaqOEg=
 			</data>
 		</dict>
 		<key>Modules/hexcolor.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iYlvTDAWjjMVLdmbgAR75+5DaoM=
+			jjSm6xlX/RWaCIEEy/c+J5bddFA=
 			</data>
 			<key>hash2</key>
 			<data>
-			kP3ZEXuBnl5cQXv+tXzT5xpV2Qg5BK8ahTSyY+GJdRs=
+			B5fU+ZVasgnXcBbUQvJbut2fJgyw/qFiqssKOBaqOEg=
 			</data>
 		</dict>
 		<key>Modules/hexcolor.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -121,11 +121,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lxbd96LuDy9AoyQOIxeAjOr5QOo=
+			7dR3VCJ/OqelyBiMw/vA+UkemQ0=
 			</data>
 			<key>hash2</key>
 			<data>
-			Y4LmiMUIqBKqSf+NHrp9hPAMQmW64gGnNBro26HUMH8=
+			R+qMxnPO/NtOreiaZoMWIiWKteXgkcz7SCQALk7GC9M=
 			</data>
 		</dict>
 		<key>Modules/hexcolor.swiftmodule/x86_64.swiftdoc</key>
@@ -143,11 +143,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lxbd96LuDy9AoyQOIxeAjOr5QOo=
+			7dR3VCJ/OqelyBiMw/vA+UkemQ0=
 			</data>
 			<key>hash2</key>
 			<data>
-			Y4LmiMUIqBKqSf+NHrp9hPAMQmW64gGnNBro26HUMH8=
+			R+qMxnPO/NtOreiaZoMWIiWKteXgkcz7SCQALk7GC9M=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
