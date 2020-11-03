@@ -8,8 +8,6 @@ import 'package:expenses/models/expense.dart';
 import 'package:expenses/models/goal.dart';
 
 class GoalsScreen extends StatelessWidget {
-  final percentages = [32, 49, 70, 92, 76, 66, 21, 88, 97];
-
   @override
   Widget build(BuildContext context) {
     return Consumer<AppStateModel>(
@@ -18,7 +16,11 @@ class GoalsScreen extends StatelessWidget {
         var listTotalAmounts = [];
         for (var i = 0; i < goals.length; i++) {
           var amounts = [];
-          final expenses = model.getExpenseByCategory(goals[i].category.index);
+          var expenses = model.getExpenseByCategory(goals[i].category.index);
+          if (expenses.length < 1) {
+            listTotalAmounts.add(0);
+            continue;
+          }
           expenses.forEach((exp) {
             amounts.add(exp.amount);
           });
