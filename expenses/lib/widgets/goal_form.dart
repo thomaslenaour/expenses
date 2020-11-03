@@ -1,23 +1,21 @@
 import 'package:expenses/models/expense.dart';
+import 'package:expenses/models/goal.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 import 'package:expenses/models/app_state_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expenses/globals.dart' as globals;
 
-class ExpenseForm extends StatefulWidget {
+class GoalForm extends StatefulWidget {
   @override
-  _ExpenseFormState createState() {
-    return _ExpenseFormState();
+  _GoalFormState createState() {
+    return _GoalFormState();
   }
 }
 
-class _ExpenseFormState extends State<ExpenseForm> {
-  String title;
-  double amount;
-  String urlLogo;
-  String description;
+class _GoalFormState extends State<GoalForm> {
+  String name;
+  double maxAmount;
   ExpCategory category;
   int selection = 0;
 
@@ -44,7 +42,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
       placeholderStyle: TextStyle(color: CupertinoColors.systemGrey),
       onChanged: (newName) {
         setState(() {
-          title = newName;
+          name = newName;
         });
       },
     );
@@ -73,87 +71,15 @@ class _ExpenseFormState extends State<ExpenseForm> {
       placeholderStyle: TextStyle(color: CupertinoColors.systemGrey),
       onChanged: (newAmount) {
         setState(() {
-          amount = double.parse(newAmount);
+          maxAmount = double.parse(newAmount);
         });
       },
     );
   }
 
-  Widget _buildUrlLogoField() {
-    return CupertinoTextField(
-      prefix: const Icon(
-        CupertinoIcons.bag,
-        color: CupertinoColors.systemGrey,
-        size: 28,
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
-      clearButtonMode: OverlayVisibilityMode.editing,
-      textCapitalization: TextCapitalization.words,
-      autocorrect: false,
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            width: 0,
-            color: CupertinoColors.systemGrey,
-          ),
-        ),
-      ),
-      placeholder: 'Enseigne',
-      placeholderStyle: TextStyle(color: CupertinoColors.systemGrey),
-      onChanged: (newUrl) {
-        setState(() {
-          urlLogo = newUrl;
-        });
-      },
-    );
-  }
-
-  Widget _buildDescriptionField() {
-    return CupertinoTextField(
-      prefix: const Icon(
-        CupertinoIcons.pencil,
-        color: CupertinoColors.systemGrey,
-        size: 28,
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
-      clearButtonMode: OverlayVisibilityMode.editing,
-      textCapitalization: TextCapitalization.words,
-      autocorrect: false,
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            width: 0,
-            color: CupertinoColors.systemGrey,
-          ),
-        ),
-      ),
-      placeholder: 'Description',
-      placeholderStyle: TextStyle(color: CupertinoColors.systemGrey),
-      onChanged: (newDesc) {
-        setState(() {
-          description = newDesc;
-        });
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference expense =
-        FirebaseFirestore.instance.collection('expense');
-
-    Future<void> addExpense() {
-      // Call the user's CollectionReference to add a new user
-      return expense
-          .add({
-            'amount': amount, // John Doe
-            'urlLogo': urlLogo, // Stokes and Sons
-            'description': description // 42
-          })
-          .then((value) => print("Added expenses"))
-          .catchError((error) => print("Failed to add user: $error"));
-    }
-
     return Consumer<AppStateModel>(
       builder: (context, model, child) {
         return Container(
@@ -188,14 +114,6 @@ class _ExpenseFormState extends State<ExpenseForm> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
-            child: _buildDescriptionField(),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
-            child: _buildUrlLogoField(),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
             child: _buildAmountField(),
           ),
           Padding(
@@ -206,23 +124,17 @@ class _ExpenseFormState extends State<ExpenseForm> {
               onPressed: () {
                 bool error = false;
                 // to do checks
-
                 if (!error) {
-                  final model = Provider.of<AppStateModel>(context, listen: false);
-                  var convertedString = this.urlLogo.replaceAll(' ', '');
-                  var urlLogo =
-                      "https://logo.clearbit.com/${convertedString.toLowerCase()}.com";
-                  var expense = new Expense(
+                final model = Provider.of<AppStateModel>(context, listen: false);
+                  var goal = new Goal(
                       category: ExpCategory.values[selection],
-                      id: model.getExpenses().length + 1,
-                      description: this.description,
-                      name: this.title,
-                      amount: this.amount,
-                      urlLogo: urlLogo);
-                  addExpense();
-                  model.setExpenses(expense);
+                      id: model.getGoals().length + 1,
+                      name: this.name,
+                      maxAmount: this.maxAmount,
+                      );
+                  model.setGoals(goal);
                   Navigator.of(context).pop();
-                  globals.tabController.index = 1;
+                  globals.tabController.index = 2;
                 }
               },
             ),

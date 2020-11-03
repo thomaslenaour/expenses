@@ -57,7 +57,7 @@ class _AppState extends State<App> {
     }
 
     return ChangeNotifierProvider<AppStateModel>(
-      create: (_) => AppStateModel()..loadExpenses(), 
+      create: (_) => AppStateModel()..loadExpenses()..loadGoals(), 
       child: MyApp(),
     );
   }

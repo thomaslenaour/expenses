@@ -1,11 +1,20 @@
 import 'package:flutter/foundation.dart';
 
 enum ExpCategory {
-  Autres,
-  Shopping,
   Abonnements,
+  Alimentation,
+  Autres,
+  Beaute,
+  Carburant,
+  Culture,
   Factures,
-  Toutes
+  Famille,
+  Reparations,
+  Sante,
+  Shopping,
+  Sorties,
+  Sports,
+  Tabac,
 }
 
 class Expense {

@@ -1,10 +1,14 @@
 import 'package:flutter/foundation.dart' as foundation;
 import 'expense.dart';
 import 'expense_model.dart';
+import 'goal_model.dart';
+import 'goal.dart';
 
 class AppStateModel extends foundation.ChangeNotifier {
   List<Expense> _allExpenses;
-  ExpCategory _selectedCategory = ExpCategory.Toutes;
+  List<Goal> _allGoals;
+  
+  ExpCategory _selectedCategory = ExpCategory.Autres;
 
   ExpCategory get selectedCategory {
     return _selectedCategory;
@@ -22,7 +26,6 @@ class AppStateModel extends foundation.ChangeNotifier {
       return [];
     }
     return List.from(_allExpenses.reversed);
-
   }
 
   List<Expense> getLatestExpenses() {
@@ -33,21 +36,21 @@ class AppStateModel extends foundation.ChangeNotifier {
     List<Expense> reversedExpenses = List.from(_allExpenses.reversed);
     List<Expense> latestExpenses = [];
 
-    for(var index = 0; index < 4; index++){
-      if(index >= reversedExpenses.length){
+    for (var index = 0; index < 4; index++) {
+      if (index >= reversedExpenses.length) {
         break;
       }
       latestExpenses.add(reversedExpenses[index]);
-      }
+    }
 
-      return latestExpenses;
+    return latestExpenses;
   }
 
   List<double> getAllAmounts() {
-    if(_allExpenses.length > 0){
+    if (_allExpenses.length > 0) {
       List<double> allAmounts = [];
 
-      for(var index = 0; index < _allExpenses.length ; index++){
+      for (var index = 0; index < _allExpenses.length; index++) {
         allAmounts.add(_allExpenses[index].amount);
       }
 
@@ -84,4 +87,23 @@ class AppStateModel extends foundation.ChangeNotifier {
     notifyListeners();
   }
   
+  List<Goal> getGoals() {
+    if (_allGoals == null) {
+      return [];
+    }
+    return List.from(_allGoals);
+  }
+
+  void loadGoals() {
+    _allGoals = GoalModel.loadGoals();
+    notifyListeners();
+  }
+
+  void setGoals(Goal newGoal) {
+    _allGoals.add(newGoal);
+    notifyListeners();
+  }
+
+
+
 }

@@ -1,4 +1,5 @@
 import 'package:expenses/screens/add_expense.dart';
+import 'package:expenses/screens/add_goal.dart';
 import 'package:expenses/screens/home.dart';
 import 'package:expenses/widgets/custom_card.dart';
 import 'package:expenses/widgets/expense_row_item.dart';
@@ -43,7 +44,7 @@ class _AddScreenState extends State<AddScreen> {
                     backgroundColor: CupertinoColors.white,
                     builder: (context, scrollController) => Padding(
                       padding: const EdgeInsets.only(bottom: 80.0),
-                      child: AddExpenseScreen(),
+                      child: AddGoalScreen(),
                     ),
                   );
                 },
