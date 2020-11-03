@@ -15,6 +15,17 @@ class GoalsScreen extends StatelessWidget {
     return Consumer<AppStateModel>(
       builder: (context, model, child) {
         final goals = model.getGoals();
+        var listTotalAmounts = [];
+        for (var i = 0; i < goals.length; i++) {
+          var amounts = [];
+          final expenses = model.getExpenseByCategory(goals[i].category.index);
+          expenses.forEach((exp) {
+            amounts.add(exp.amount);
+          });
+          var sum = amounts.reduce((a, b) => a + b);
+          listTotalAmounts.add(sum);
+        }
+
         return CustomScrollView(
           slivers: <Widget>[
             const CupertinoSliverNavigationBar(
@@ -29,10 +40,12 @@ class GoalsScreen extends StatelessWidget {
                     if (index < goals.length) {
                       return GoalRowItem(
                         index: index,
-                        title: "Objectif", //goals[index],
-                        amount: 200,
-                        percentage: percentages[index] / 100,
-                        category: 'Courses',
+                        title: goals[index].name,
+                        amount: goals[index].maxAmount,
+                        percentage:
+                            listTotalAmounts[index] / goals[index].maxAmount,
+                        category:
+                            goals[index].category.toString().split('.')[1],
                       );
                     }
                   },
