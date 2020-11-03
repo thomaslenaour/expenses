@@ -44,7 +44,7 @@ class _AddScreenState extends State<AddScreen> {
                     backgroundColor: CupertinoColors.white,
                     builder: (context, scrollController) => Padding(
                       padding: const EdgeInsets.only(bottom: 80.0),
-                      child: AddGoalScreen(),
+                      child: AddExpenseScreen(),
                     ),
                   );
                 },
@@ -60,7 +60,7 @@ class _AddScreenState extends State<AddScreen> {
                     backgroundColor: CupertinoColors.white,
                     builder: (context, scrollController) => Padding(
                       padding: const EdgeInsets.only(bottom: 80.0),
-                      child: AddExpenseScreen(),
+                      child: AddGoalScreen(),
                     ),
                   );
                 },)),
