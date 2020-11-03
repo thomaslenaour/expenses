@@ -20,47 +20,49 @@ class AllExpensesScreen extends StatelessWidget {
             SliverSafeArea(
               top: false,
               minimum: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-              sliver: SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    if (index < expense.length) {
-                      return GestureDetector(
-                        onLongPress: () => 
-                        showCupertinoModalPopup(
-                          context: context, 
-                          builder: (context) => 
-                            CupertinoActionSheet(
-                              title: Text("Supprimer une dépense"),
-                              actions: [
-                                // CupertinoActionSheetAction(
-                                //   onPressed: () => AddExpenseScreen(), 
-                                //   child: Text("Modifier")),
-                                CupertinoActionSheetAction(
-                                  onPressed: () => { 
-                                    model.removeExpense(index), 
-                                    Navigator.pop(context, 'Cancel'),
-                                    },
-                                  child: Text("Supprimer")),
-                              ],
-                              cancelButton: CupertinoActionSheetAction(
-                                  onPressed: () => Navigator.pop(context, 'Cancel'), 
-                                  child: Text("Annuler"),
-                                  isDefaultAction: true,
-                                  ),
-                            ),),
-                        child: 
-                          ExpenseRowItem(
-                          index: index,
-                          expense: expense[index],
-                          lastItem: index == expense.length - 1,
-                        )
-                      );
-                    }
-                    return null;
-                  },
-                ),
-              ),
-            ),
+              sliver: 
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      if (index < expense.length) {
+                        return GestureDetector(
+                          onLongPress: () => 
+                            showCupertinoModalPopup(
+                              context: context, 
+                              builder: (context) => 
+                                CupertinoActionSheet(
+                                  title: Text("Supprimer une dépense"),
+                                  actions: [
+                                    // CupertinoActionSheetAction(
+                                    //   onPressed: () => AddExpenseScreen(), 
+                                    //   child: Text("Modifier")),
+                                    CupertinoActionSheetAction(
+                                      onPressed: () => { 
+                                        model.removeExpense(expense[index]), 
+                                        Navigator.pop(context, 'Cancel'),
+                                        },
+                                      child: Text("Supprimer")),
+                                  ],
+                                  cancelButton: CupertinoActionSheetAction(
+                                      onPressed: () => Navigator.pop(context, 'Cancel'), 
+                                      child: Text("Annuler"),
+                                      isDefaultAction: true,
+                                      ),
+                                ),
+                            ),
+                          child:                             
+                            ExpenseRowItem(
+                                index: index,
+                                expense: expense[index],
+                                lastItem: index == expense.length - 1,
+                              ) 
+                        );
+                      }
+                      return null;
+                    },
+                  ),
+                )
+            )
           ],
         );
       },
