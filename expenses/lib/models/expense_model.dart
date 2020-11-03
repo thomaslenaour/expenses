@@ -8,7 +8,7 @@ class ExpenseModel {
         id: 0,
         description: "Achat Mac",
         name: 'Apple Store',
-        amount: 0,
+        amount: 10,
         urlLogo: "https://logo.clearbit.com/apple.fr"),
     Expense(
         category: ExpCategory.Shopping,

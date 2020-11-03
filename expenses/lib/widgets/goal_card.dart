@@ -18,7 +18,7 @@ class GoalRowItem extends StatelessWidget {
 
   final int index;
   final String title;
-  final int amount;
+  final double amount;
   final double percentage;
   final String category;
 

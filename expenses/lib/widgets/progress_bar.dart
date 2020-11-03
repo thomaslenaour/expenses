@@ -12,7 +12,9 @@ class ProgressBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double widthProgress = MediaQuery.of(context).size.width * 0.65 * progress;
+    double widthProgress = MediaQuery.of(context).size.width *
+        0.65 *
+        (progress <= 1 ? progress : 1);
     Color progressColor = progress <= 0.5
         ? CupertinoColors.systemGreen
         : progress <= 0.75

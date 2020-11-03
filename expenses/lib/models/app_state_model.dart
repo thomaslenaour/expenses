@@ -7,7 +7,7 @@ import 'goal.dart';
 class AppStateModel extends foundation.ChangeNotifier {
   List<Expense> _allExpenses;
   List<Goal> _allGoals;
-  
+
   ExpCategory _selectedCategory = ExpCategory.Autres;
 
   ExpCategory get selectedCategory {
@@ -71,6 +71,12 @@ class AppStateModel extends foundation.ChangeNotifier {
     return _allExpenses.firstWhere((exp) => exp.id == id);
   }
 
+  List<Expense> getExpenseByCategory(int categoryIndex) {
+    return _allExpenses
+        .where((exp) => exp.category.index == categoryIndex)
+        .toList();
+  }
+
   // Loads the list of expenses from the model.
   void loadExpenses() {
     _allExpenses = ExpenseModel.loadExpenses();
@@ -86,7 +92,7 @@ class AppStateModel extends foundation.ChangeNotifier {
     _allExpenses.add(newExpense);
     notifyListeners();
   }
-  
+
   List<Goal> getGoals() {
     if (_allGoals == null) {
       return [];
@@ -103,7 +109,4 @@ class AppStateModel extends foundation.ChangeNotifier {
     _allGoals.add(newGoal);
     notifyListeners();
   }
-
-
-
 }
