@@ -26,6 +26,9 @@ class GoalModel {
   ];
 
   static List<Goal> loadGoals() {
+    if (_allGoals == null) {
+      return [];
+    }
     return _allGoals;
   }
 }

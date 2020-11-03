@@ -93,8 +93,8 @@ class AppStateModel extends foundation.ChangeNotifier {
     notifyListeners();
   }
 
-  void removeExpense(int index) {
-    _allExpenses.removeAt(index);
+  void removeExpense(Expense expenseToDel) {
+    _allExpenses.remove(expenseToDel);
     notifyListeners();
   }
 
