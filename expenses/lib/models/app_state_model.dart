@@ -114,4 +114,9 @@ class AppStateModel extends foundation.ChangeNotifier {
     _allGoals.add(newGoal);
     notifyListeners();
   }
+
+  void removeGoal(Goal goalToDel) {
+    _allGoals.remove(goalToDel);
+    notifyListeners();
+  }
 }

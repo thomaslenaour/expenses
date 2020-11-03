@@ -40,14 +40,40 @@ class GoalsScreen extends StatelessWidget {
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
                     if (index < goals.length) {
-                      return GoalRowItem(
-                        index: index,
-                        title: goals[index].name,
-                        amount: goals[index].maxAmount,
-                        percentage:
-                            listTotalAmounts[index] / goals[index].maxAmount,
-                        category:
-                            goals[index].category.toString().split('.')[1],
+                      return GestureDetector(
+                        onLongPress: () => showCupertinoModalPopup(
+                              context: context,
+                              builder: (context) => CupertinoActionSheet(
+                                title: Text("Supprimer un objectif"),
+                                actions: [
+                                  // CupertinoActionSheetAction(
+                                  //   onPressed: () => AddExpenseScreen(),
+                                  //   child: Text("Modifier")),
+                                  CupertinoActionSheetAction(
+                                      onPressed: () => {
+                                            model.removeGoal(
+                                                goals[index]),
+                                            Navigator.pop(context, 'Cancel'),
+                                          },
+                                      child: Text("Supprimer")),
+                                ],
+                                cancelButton: CupertinoActionSheetAction(
+                                  onPressed: () =>
+                                      Navigator.pop(context, 'Cancel'),
+                                  child: Text("Annuler"),
+                                  isDefaultAction: true,
+                                ),
+                              ),
+                            ),
+                        child: GoalRowItem(
+                          index: index,
+                          title: goals[index].name,
+                          amount: goals[index].maxAmount,
+                          percentage: listTotalAmounts[index] /
+                              goals[index].maxAmount,
+                          category:
+                              goals[index].category.toString().split('.')[1],
+                        )
                       );
                     }
                   },
