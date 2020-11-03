@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:expenses/models/app_state_model.dart';
 
 class AllExpensesScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Consumer<AppStateModel>(
@@ -20,7 +19,7 @@ class AllExpensesScreen extends StatelessWidget {
               minimum: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
               sliver: SliverList(
                 delegate: SliverChildBuilderDelegate(
-                      (context, index) {
+                  (context, index) {
                     if (index < expense.length) {
                       return ExpenseRowItem(
                         index: index,

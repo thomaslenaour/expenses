@@ -1,4 +1,5 @@
 import 'expense.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ExpenseModel {
   static var _allExpenses = <Expense>[
@@ -44,11 +45,9 @@ class ExpenseModel {
         name: 'MacDo',
         amount: 120,
         urlLogo: "https://logo.clearbit.com/mcdonalds.fr"),
-
   ];
 
   static List<Expense> loadExpenses() {
     return _allExpenses;
   }
-
 }
